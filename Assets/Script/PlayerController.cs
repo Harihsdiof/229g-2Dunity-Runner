@@ -37,6 +37,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.gameObject.CompareTag("Item"))
+        {
+            Destroy(target.gameObject);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // ตรวจสอบการชนกับพื้น
