@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
+    private int score;
+    public Text scoreUI;
 
     private void Start()
     {
@@ -36,14 +41,18 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
-
+    
+    // ตรวจสอบการชน ITEM แล้วขึ้นคะแนน OnCollisionEnter2D
     private void OnTriggerEnter2D(Collider2D target)
     {
         if (target.gameObject.CompareTag("Item"))
         {
             Destroy(target.gameObject);
+            score += 1;
+            scoreUI.text = "Score : " + score.ToString();
         }
     }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // ตรวจสอบการชนกับพื้น
