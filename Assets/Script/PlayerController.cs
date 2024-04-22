@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,6 +41,21 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        
+        // กระโดดแบบโพรเจกไทล์โดยกด Ctrl
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded)
+        {
+            ProjectileJump();
+        }
+    }
+    
+    private void ProjectileJump()
+    {
+        // คำนวณความเร็วแนวดิ่งที่ต้องการกระโดด
+        float jumpVelocity = Mathf.Sqrt(-2 * Physics2D.gravity.y * jumpForce);
+
+        // ใช้ความเร็วแนวดิ่งที่คำนวณไว้ในการกระโดด
+        rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
     }
     
     // ตรวจสอบการชน ITEM แล้วขึ้นคะแนน OnCollisionEnter2D
@@ -50,6 +66,11 @@ public class PlayerController : MonoBehaviour
             Destroy(target.gameObject);
             score += 1;
             scoreUI.text = "Score : " + score.ToString();
+        }
+
+        if (target.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     
