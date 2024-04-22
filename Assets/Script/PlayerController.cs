@@ -1,58 +1,30 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 10f; // ความสูงของการกระโดด
-    public Rigidbody2D rb;
-    private bool isFacingRight = true;
-    private bool isGrounded; // เช็คว่าตัวละครยืนบนพื้นหรือไม่
 
-    // Update is called once per frame
-    void Update()
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
     {
-        // รับ Input จากผู้เล่น
-        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
-        // คำนวณความเร็วและเปลี่ยนตำแหน่ง
+    private void Update()
+    {
+        float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
-        // ทำการ Flip ตัวละคร
-        if (moveInput > 0 && !isFacingRight)
+        if (moveInput > 0)
         {
-            Flip();
+            spriteRenderer.flipX = false; // ไม่ Flip ภาพ
         }
-        else if (moveInput < 0 && isFacingRight)
+        else if (moveInput < 0)
         {
-            Flip();
-        }
-
-        // ตรวจสอบว่าตัวละครยืนบนพื้นหรือไม่
-        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.1f);
-
-        // กระโดดเมื่อกดปุ่ม Space และตัวละครอยู่บนพื้น
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-    }
-
-    // ฟังก์ชันสำหรับ Flip ตัวละคร
-    void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
-
-    // ฟังก์ชันที่เรียกเมื่อตัวละครชนกำแพง
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            // หันตัวละครไปทางตรงข้าม
-            Flip();
+            spriteRenderer.flipX = true; // Flip ภาพ
         }
     }
 }
