@@ -24,6 +24,6 @@ public class WinScreen : MonoBehaviour
     IEnumerator Countdown ()
     {
         yield return new WaitForSeconds (delay);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
