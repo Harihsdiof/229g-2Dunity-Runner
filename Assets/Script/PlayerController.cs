@@ -13,13 +13,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
-    private int score;
-    public Text scoreUI;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     private void Update()
@@ -61,13 +60,6 @@ public class PlayerController : MonoBehaviour
     // ตรวจสอบการชน ITEM แล้วขึ้นคะแนน OnCollisionEnter2D
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.gameObject.CompareTag("Item"))
-        {
-            Destroy(target.gameObject);
-            score += 1;
-            scoreUI.text = "Score : " + score.ToString();
-        }
-
         if (target.gameObject.CompareTag("Enemy"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
