@@ -528,10 +528,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -609,7 +609,7 @@ RectTransform:
   m_GameObject: {fileID: 1814078388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.48735, y: 0.48735, z: 0.48735}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 213760970}
@@ -641,7 +641,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -652,11 +652,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Member\n1.1650705229 \u0E2B\u0E24\u0E29\u0E0E\u0E4C \u0E1E\u0E22\u0E31\u0E04\u0E06\u0E2A\u0E31\u0E07\u0E02\u0E4C
-    Sec 229G No.19 (Programming)\n2.1650705633 \u0E08\u0E38\u0E25\u0E08\u0E31\u0E01\u0E23
-    \u0E15\u0E31\u0E19\u0E15\u0E34\u0E14\u0E25\u0E18\u0E40\u0E19\u0E28 Sec 229G No.22
-    (Game Design)\n1.1650707175 \u0E20\u0E23\u0E31\u0E13\u0E22\u0E39 \u0E19\u0E34\u0E08\u0E08\u0E23\u0E31\u0E25\u0E01\u0E38\u0E25\u0E4C
-    Sec 229G No.25 (Programming)\n\nReference Assets\nSprite by \rRehope Games"
+  m_Text: "Member\n1.1650705229 Harith Payakkasung Sec 229G No.19 (Programming)\n2.1650705633
+    Chunlachak Tantidolthanes Sec 229G No.22 (Game Design)\n1.1650707175 Paruntoo
+    Nijjarungul Sec 229G No.25 (Programming)\n\nReference Assets\nSprite by \rRehope
+    Games"
 --- !u!222 &1814078391
 CanvasRenderer:
   m_ObjectHideFlags: 0
